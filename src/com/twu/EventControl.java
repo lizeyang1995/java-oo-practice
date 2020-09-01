@@ -25,8 +25,18 @@ public class EventControl {
     }
 
     public void showEvent() {
+        sortingEvent(allEvents);
         for (int i = 0; i < allEvents.size(); i++) {
             System.out.println(i + 1 + " " + allEvents.get(i).getEventName() + " " + allEvents.get(i).getHeat());
         }
+    }
+
+    private void sortingEvent(List<Event> allEvents) {
+        Collections.sort(allEvents, new Comparator<Event>() {
+            @Override
+            public int compare(Event event, Event anotherEvent) {
+                return anotherEvent.getHeat() - event.getHeat();
+            }
+        });
     }
 }
