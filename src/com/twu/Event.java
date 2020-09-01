@@ -24,4 +24,12 @@ public class Event {
             }
         }
     }
+
+    public void showEvent() {
+        for (int i = 0; i < allEvents.size(); i++) {
+            for (Map.Entry<String, Integer> entry : allEvents.get(i).entrySet()) {
+                System.out.println(i + 1 + " " + entry.getKey() + " " + entry.getValue());
+            }
+        }
+    }
 }
