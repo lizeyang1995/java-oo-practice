@@ -1,13 +1,19 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Event {
-    static List<Map<String, Integer>> allEvents = new ArrayList<>();
-    public static void addEvent(String eventName) {
+    private List<Map<String, Integer>> allEvents = new ArrayList<>();
+    private Set<String> allEventsName = new HashSet<>();
+
+    public Event() {
+        this.allEvents = new ArrayList<>();
+        this.allEventsName = new HashSet<>();
+    }
+
+    public void addEvent(String eventName) {
         Map<String, Integer> event = new HashMap<>();
-        event.put(eventName, 0);
-        allEvents.add(event);
+        if (allEventsName.add(eventName.toUpperCase())) {
+            event.put(eventName, 0);
+            allEvents.add(event);
+        }
     }
 }
