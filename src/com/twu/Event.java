@@ -1,35 +1,25 @@
-import java.util.*;
-
 public class Event {
-    private List<Map<String, Integer>> allEvents;
-    private Set<String> allEventsName;
+    private String eventName;
+    private int heat;
 
-    public Event() {
-        this.allEvents = new ArrayList<>();
-        this.allEventsName = new HashSet<>();
+    Event(String eventName) {
+        this.eventName = eventName;
+        this.heat = 0;
     }
 
-    public void addEvent(String eventName) {
-        Map<String, Integer> event = new HashMap<>();
-        if (allEventsName.add(eventName.toUpperCase())) {
-            event.put(eventName, 0);
-            allEvents.add(event);
-        }
+    String getEventName() {
+        return eventName;
     }
 
-    public void removeEvent(String eventName) {
-        for (int i = 0; i < allEvents.size(); i++) {
-            if (allEvents.get(i).get(eventName) != null) {
-                allEvents.remove(i);
-            }
-        }
+    int getHeat() {
+        return heat;
     }
 
-    public void showEvent() {
-        for (int i = 0; i < allEvents.size(); i++) {
-            for (Map.Entry<String, Integer> entry : allEvents.get(i).entrySet()) {
-                System.out.println(i + 1 + " " + entry.getKey() + " " + entry.getValue());
-            }
-        }
+    public void setEventName(String eventName) {
+        this.eventName = eventName;
+    }
+
+    public void setHeat(int heat) {
+        this.heat = heat;
     }
 }
