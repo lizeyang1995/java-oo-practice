@@ -22,7 +22,7 @@ public class User {
         eventController.addEvent(event);
     }
 
-    public void increaseHeat(String eventName, int ticketsNumber) {
+    public void vote(String eventName, int ticketsNumber) {
         if (ticketsNumber <= this.ticketsNumber) {
             eventController.increaseHeat(eventName, ticketsNumber);
             this.ticketsNumber -= ticketsNumber;
