@@ -4,7 +4,8 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        EventController eventController = new EventController();
+        PriceController priceController = new PriceController();
+        EventController eventController = new EventController(priceController);
         UserController userController = new UserController();
         while (true) {
             showMainPage();
@@ -16,7 +17,7 @@ public class Main {
                     String userName = scanner.next();
                     int userIndex = userController.findUserIndex(userName);
                     if (userIndex == -1) {
-                        user = new User(userName, eventController);
+                        user = new User(userName, eventController, priceController);
                         userController.addUser(user);
                     } else {
                         user = userController.getUser(userIndex);

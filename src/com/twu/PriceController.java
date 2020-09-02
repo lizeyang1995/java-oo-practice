@@ -5,7 +5,7 @@ public class PriceController {
     private List<Integer> obtainedRanking;
     private List<Integer> allRankingPrices;
 
-    public PriceController(EventController eventController) {
+    public PriceController() {
         obtainedRanking = new ArrayList<>();
         allRankingPrices = new ArrayList<>();
     }
