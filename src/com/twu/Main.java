@@ -11,8 +11,15 @@ public class Main {
                 case 1: {
                     System.out.println("请输入您的昵称:");
                     String userName = scanner.next();
+                    User user = new User(userName);
                     while (true) {
                         showUserPage(userName);
+                        int operationNumber = scanner.nextInt();
+                        switch (operationNumber) {
+                            case 1: {
+                                user.showEvent();
+                            }
+                        }
                     }
                 }
                 case 2: {
