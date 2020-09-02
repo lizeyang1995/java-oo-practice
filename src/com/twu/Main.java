@@ -12,7 +12,8 @@ public class Main {
                     System.out.println("请输入您的昵称:");
                     String userName = scanner.next();
                     User user = new User(userName);
-                    while (true) {
+                    boolean run = true;
+                    while (run) {
                         showUserPage(userName);
                         int operationNumber = scanner.nextInt();
                         switch (operationNumber) {
@@ -32,6 +33,10 @@ public class Main {
                                 System.out.println("请输入要添加的热搜名称：");
                                 String eventName = scanner.next();
                                 user.addEvent(eventName);
+                                break;
+                            }
+                            case 5: {
+                                run = false;
                                 break;
                             }
                         }
