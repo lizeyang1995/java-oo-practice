@@ -44,7 +44,11 @@ public class EventController {
         for (int i = 0; i < allEvents.size(); i++) {
             if (allEvents.get(i).getEventName().equals(eventName)) {
                 int originalHeat = allEvents.get(i).getHeat();
-                allEvents.get(i).setHeat(originalHeat + ticketsNumber);
+                if (allEvents.get(i).isSuperEvent()) {
+                    allEvents.get(i).setHeat(originalHeat + ticketsNumber * 2);
+                } else {
+                    allEvents.get(i).setHeat(originalHeat + ticketsNumber);
+                }
                 return;
             }
         }
