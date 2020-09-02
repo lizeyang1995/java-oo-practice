@@ -4,9 +4,9 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        EventController eventController = new EventController();
         while (true) {
             showMainPage();
-            EventController eventController = new EventController();
             int whoAreYou = scanner.nextInt();
             switch (whoAreYou) {
                 case 1: {
