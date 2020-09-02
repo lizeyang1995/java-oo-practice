@@ -18,7 +18,8 @@ public class User {
     }
 
     public void addEvent(String eventName) {
-        eventController.addEvent(eventName);
+        Event event = new Event(eventName);
+        eventController.addEvent(event);
     }
 
     public void increaseHeat(String eventName, int ticketsNumber) {

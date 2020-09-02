@@ -11,7 +11,8 @@ public class Administrator {
         return administratorName;
     }
 
-    public void addEvent(String eventName) {
-        eventController.addEvent(eventName);
+    public void addEvent(String eventName, boolean isSuperEvent) {
+        Event event = new Event(eventName, isSuperEvent);
+        eventController.addEvent(event);
     }
 }

@@ -9,8 +9,8 @@ public class EventController {
         this.allEventsName = new HashSet<>();
     }
 
-    void addEvent(String eventName) {
-        Event event = new Event(eventName);
+    void addEvent(Event event) {
+        String eventName = event.getEventName();
         if (allEventsName.add(eventName.toUpperCase())) {
             allEvents.add(event);
         } else {
