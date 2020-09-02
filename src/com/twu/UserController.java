@@ -8,6 +8,10 @@ public class UserController {
         this.userData = new ArrayList<>();
     }
 
+    public List<User> getUserData() {
+        return userData;
+    }
+
     public void addUser(User user) {
         userData.add(user);
     }

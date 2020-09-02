@@ -11,9 +11,13 @@ public class Main {
             int whoAreYou = scanner.nextInt();
             switch (whoAreYou) {
                 case 1: {
+                    User user =null;
                     System.out.println("请输入您的昵称:");
                     String userName = scanner.next();
-                    User user = new User(userName, eventController);
+                    if (isNewUser(userName, userController)) {
+                        user = new User(userName, eventController);
+                        userController.addUser(user);
+                    }
                     UserPage userPage = new UserPage(user);
                     userPage.action();
                     break;
@@ -32,6 +36,15 @@ public class Main {
                 }
             }
         }
+    }
+
+    private static boolean isNewUser(String userName, UserController userController) {
+        for (User user : userController.getUserData()) {
+            if (user.getUserName().equals(userName)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public static void showMainPage() {
