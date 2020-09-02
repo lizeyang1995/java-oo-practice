@@ -5,10 +5,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         while (true) {
-            System.out.println("欢迎来到热搜榜，你是？");
-            System.out.println("1.用户");
-            System.out.println("2.管理员");
-            System.out.println("3.退出");
+            showMainPage();
             int whoAreYou = scanner.nextInt();
             switch (whoAreYou) {
                 case 1: {
@@ -27,6 +24,13 @@ public class Main {
                 }
             }
         }
+    }
+
+    public static void showMainPage() {
+        System.out.println("欢迎来到热搜榜，你是？");
+        System.out.println("1.用户");
+        System.out.println("2.管理员");
+        System.out.println("3.退出");
     }
 
     public static void showUserPage(String userName) {
