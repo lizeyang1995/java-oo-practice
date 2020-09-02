@@ -24,4 +24,8 @@ public class UserController {
         }
         return -1;
     }
+
+    public User getUser(int index) {
+        return userData.get(index);
+    }
 }

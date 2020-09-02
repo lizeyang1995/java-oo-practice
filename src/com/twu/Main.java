@@ -14,9 +14,12 @@ public class Main {
                     User user =null;
                     System.out.println("请输入您的昵称:");
                     String userName = scanner.next();
-                    if (isNewUser(userName, userController)) {
+                    int userIndex = userController.findUserIndex(userName);
+                    if (userIndex == -1) {
                         user = new User(userName, eventController);
                         userController.addUser(user);
+                    } else {
+                        user = userController.getUser(userIndex);
                     }
                     UserPage userPage = new UserPage(user);
                     userPage.action();
