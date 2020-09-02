@@ -15,4 +15,8 @@ public class Administrator {
         Event event = new Event(eventName, isSuperEvent);
         eventController.addEvent(event);
     }
+
+    public void showEvent() {
+        eventController.showEvent();
+    }
 }
