@@ -28,6 +28,10 @@ public class RankController {
         return eventNewRank;
     }
 
+    public List<String> getDeletedEvent() {
+        return deletedEvent;
+    }
+
     public void bidding(int newRank, int originalRanking, String eventName, int price) {
         if (allRankingPrices.get(newRank - 1) < price) {
             System.out.println("竞价成功！");
