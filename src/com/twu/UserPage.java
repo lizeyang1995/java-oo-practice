@@ -34,6 +34,7 @@ public class UserPage {
                     System.out.println("请输入要购买的价格：");
                     int priceToBuy = scanner.nextInt();
                     user.purchaseEvent(eventName, desiredRanking, priceToBuy);
+                    break;
                 }
                 case 4: {
                     System.out.println("请输入要添加的热搜名称：");
