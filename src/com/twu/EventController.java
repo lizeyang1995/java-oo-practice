@@ -4,12 +4,12 @@ public class EventController {
     private List<Event> allEvents;
     private Set<String> allEventsName;
 
-    public EventController() {
+    EventController() {
         this.allEvents = new ArrayList<>();
         this.allEventsName = new HashSet<>();
     }
 
-    public void addEvent(String eventName) {
+    void addEvent(String eventName) {
         Event event = new Event(eventName);
         if (allEventsName.add(eventName.toUpperCase())) {
             allEvents.add(event);
@@ -22,11 +22,12 @@ public class EventController {
         for (int i = 0; i < allEvents.size(); i++) {
             if (allEvents.get(i).getEventName().equals(eventName)) {
                 allEvents.remove(i);
+                return;
             }
         }
     }
 
-    public void showEvent() {
+    void showEvent() {
         sortingEvent(allEvents);
         for (int i = 0; i < allEvents.size(); i++) {
             System.out.println(i + 1 + " " + allEvents.get(i).getEventName() + " " + allEvents.get(i).getHeat());
@@ -34,7 +35,7 @@ public class EventController {
     }
 
     private void sortingEvent(List<Event> allEvents) {
-        Collections.sort(allEvents, new Comparator<Event>() {
+        allEvents.sort(new Comparator<Event>() {
             @Override
             public int compare(Event event, Event anotherEvent) {
                 return anotherEvent.getHeat() - event.getHeat();
@@ -42,14 +43,14 @@ public class EventController {
         });
     }
 
-    public void increaseHeat(String eventName, int ticketsNumber) {
-        for (int i = 0; i < allEvents.size(); i++) {
-            if (allEvents.get(i).getEventName().equals(eventName)) {
-                int originalHeat = allEvents.get(i).getHeat();
-                if (allEvents.get(i).isSuperEvent()) {
-                    allEvents.get(i).setHeat(originalHeat + ticketsNumber * 2);
+    void increaseHeat(String eventName, int ticketsNumber) {
+        for (Event event : allEvents) {
+            if (event.getEventName().equals(eventName)) {
+                int originalHeat = event.getHeat();
+                if (event.isSuperEvent()) {
+                    event.setHeat(originalHeat + ticketsNumber * 2);
                 } else {
-                    allEvents.get(i).setHeat(originalHeat + ticketsNumber);
+                    event.setHeat(originalHeat + ticketsNumber);
                 }
                 return;
             }
