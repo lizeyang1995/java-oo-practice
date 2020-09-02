@@ -20,6 +20,8 @@ public class Main {
                     System.out.println("请输入您的昵称:");
                     String administratorName = scanner.next();
                     Administrator administrator = new Administrator(administratorName);
+                    AdministratorPage administratorPage = new AdministratorPage(administrator);
+                    administratorPage.action();
                     break;
                 }
                 case 3: {
