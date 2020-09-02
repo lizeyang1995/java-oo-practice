@@ -41,15 +41,6 @@ public class Main {
         }
     }
 
-    private static boolean isNewUser(String userName, UserController userController) {
-        for (User user : userController.getUserData()) {
-            if (user.getUserName().equals(userName)) {
-                return false;
-            }
-        }
-        return true;
-    }
-
     public static void showMainPage() {
         System.out.println("欢迎来到热搜榜，你是？");
         System.out.println("1.用户");
