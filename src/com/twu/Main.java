@@ -14,8 +14,12 @@ public class Main {
                     User user = new User(userName);
                     UserPage userPage = new UserPage(user);
                     userPage.action();
+                    break;
                 }
                 case 2: {
+                    System.out.println("请输入您的昵称:");
+                    String administratorName = scanner.next();
+                    Administrator administrator = new Administrator(administratorName);
                     break;
                 }
                 case 3: {
