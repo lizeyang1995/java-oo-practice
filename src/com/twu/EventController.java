@@ -48,6 +48,20 @@ public class EventController {
                 return anotherEvent.getHeat() - event.getHeat();
             }
         });
+        adjustPurchasedEventPosition();
+    }
+
+    public void adjustPurchasedEventPosition() {
+        List<Integer> obtainedRanking = priceController.getObtainedRanking();
+        for (int index = 0; index < obtainedRanking.size(); index++) {
+            Integer newRank = obtainedRanking.get(index);
+            if (newRank > 0) {
+                Event eventsToBeAdjusted = allEvents.get(index);
+                allEvents.set(newRank - 1, eventsToBeAdjusted);
+                allEvents.remove(index);
+                obtainedRanking.set(index, 0);
+            }
+        }
     }
 
     boolean increaseHeat(String eventName, int ticketsNumber) {

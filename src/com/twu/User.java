@@ -43,7 +43,7 @@ public class User {
     public void purchaseEvent(String eventName, int newRank, int price) {
         int eventRank = eventController.getEventRank(eventName);
         if (eventRank > -1) {
-            boolean bidSuccess = priceController.bidding(newRank, eventRank, price);
+            boolean bidSuccess = priceController.bidding(newRank, eventRank + 1, price);
             if (bidSuccess) {
                 eventController.removeEvent(newRank);
             } else {

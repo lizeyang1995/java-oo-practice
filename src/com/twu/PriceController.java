@@ -23,7 +23,7 @@ public class PriceController {
             System.out.println("购买成功！");
             allRankingPrices.set(newRank - 1, price);
             allRankingPrices.set(originalRanking - 1, 0);
-            obtainedRanking.set(originalRanking, newRank);
+            obtainedRanking.set(originalRanking - 1, newRank);
             return true;
         }
         System.out.println("购买失败！");
