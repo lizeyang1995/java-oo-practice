@@ -16,6 +16,10 @@ public class Event {
         return heat;
     }
 
+    public boolean isSuperEvent() {
+        return isSuperEvent;
+    }
+
     public void setEventName(String eventName) {
         this.eventName = eventName;
     }
