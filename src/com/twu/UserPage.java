@@ -26,6 +26,15 @@ public class UserPage {
                     user.vote(eventName, votes);
                     break;
                 }
+                case 3: {
+                    System.out.println("请输入要购买的热搜名称：");
+                    String eventName = scanner.next();
+                    System.out.println("请输入要购买的排名：");
+                    int desiredRanking = scanner.nextInt();
+                    System.out.println("请输入要购买的价格：");
+                    int priceToBuy = scanner.nextInt();
+                    user.purchaseEvent(eventName, desiredRanking, priceToBuy);
+                }
                 case 4: {
                     System.out.println("请输入要添加的热搜名称：");
                     String eventName = scanner.next();
