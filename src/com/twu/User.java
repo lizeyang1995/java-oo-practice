@@ -9,6 +9,10 @@ public class User {
         this.eventController = new EventController();
     }
 
+    public String getUserName() {
+        return userName;
+    }
+
     public void showEvent() {
         eventController.showEvent();
     }
