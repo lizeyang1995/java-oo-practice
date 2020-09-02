@@ -4,11 +4,14 @@ public class EventController {
     private List<Event> allEvents;
     private Set<String> allEventsName;
     private RankController rankController;
+    private Event[] eventsSequence;
+    private List<String> deletedEvent;
 
     EventController(RankController priceController) {
         this.allEvents = new ArrayList<>();
         this.allEventsName = new HashSet<>();
         this.rankController = priceController;
+        this.deletedEvent = new ArrayList<>();
     }
 
     void addEvent(Event event) {
@@ -30,6 +33,15 @@ public class EventController {
             }
         }
         return -1;
+    }
+
+    public Event getEventByName(String eventName) {
+        for (Event event : allEvents) {
+            if (event.getEventName().equals(eventName)) {
+                return event;
+            }
+        }
+        return null;
     }
 
     void showEvent() {
