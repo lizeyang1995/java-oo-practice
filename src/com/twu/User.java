@@ -42,13 +42,10 @@ public class User {
 
     public void purchaseEvent(String eventName, int newRank, int price) {
         int eventRank = eventController.getEventRank(eventName);
-        if (eventRank > -1) {
-            boolean bidSuccess = priceController.bidding(newRank, eventRank, price);
-            if (!bidSuccess) {
-                System.out.println("竞价失败！");
-            }
+        if (eventRank > -1 && eventRank != newRank) {
+            priceController.bidding(newRank, eventRank, price);
         } else {
-            System.out.println("你要购买的事件不存在！");
+            System.out.println("购买失败！");
         }
     }
 }

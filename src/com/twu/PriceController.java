@@ -18,15 +18,14 @@ public class PriceController {
         return allRankingPrices;
     }
 
-    public boolean bidding(int newRank, int originalRanking, int price) {
+    public void bidding(int newRank, int originalRanking, int price) {
         if (allRankingPrices.get(newRank - 1) < price) {
-            System.out.println("购买成功！");
+            System.out.println("竞价成功！");
             allRankingPrices.set(newRank - 1, price);
             allRankingPrices.set(originalRanking - 1, 0);
             obtainedRanking.set(originalRanking - 1, newRank);
-            return true;
+        } else {
+            System.out.println("竞价失败！");
         }
-        System.out.println("购买失败！");
-        return false;
     }
 }
