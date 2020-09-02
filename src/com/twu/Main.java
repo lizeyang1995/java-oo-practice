@@ -19,6 +19,13 @@ public class Main {
                             case 1: {
                                 user.showEvent();
                             }
+                            case 2: {
+                                System.out.println("请输入你要投票的热搜名字：");
+                                String eventName = scanner.next();
+                                System.out.println("请输入你要投入的票数：" + "(你目前还有：" + user.getTicketsNumber() + "票)");
+                                int votes = scanner.nextInt();
+                                user.vote(eventName, votes);
+                            }
                         }
                     }
                 }

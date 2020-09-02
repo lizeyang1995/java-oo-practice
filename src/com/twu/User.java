@@ -13,6 +13,10 @@ public class User {
         return userName;
     }
 
+    public int getTicketsNumber() {
+        return ticketsNumber;
+    }
+
     public void showEvent() {
         eventController.showEvent();
     }
