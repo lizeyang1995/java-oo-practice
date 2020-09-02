@@ -43,8 +43,11 @@ public class EventController {
     public void increaseHeat(String eventName, int ticketsNumber) {
         for (int i = 0; i < allEvents.size(); i++) {
             if (allEvents.get(i).getEventName().equals(eventName)) {
-                allEvents.get(i).setHeat(ticketsNumber);
+                int originalHeat = allEvents.get(i).getHeat();
+                allEvents.get(i).setHeat(originalHeat + ticketsNumber);
+                return;
             }
         }
+        System.out.println("该热搜不存在。。");
     }
 }
