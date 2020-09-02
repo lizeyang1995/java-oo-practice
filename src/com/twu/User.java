@@ -2,13 +2,13 @@ public class User {
     private String userName;
     private int ticketsNumber;
     private EventController eventController;
-    private PriceController priceController;
+    private RankController rankController;
 
-    public User(String userName, EventController eventController, PriceController priceController) {
+    public User(String userName, EventController eventController, RankController rankController) {
         this.userName = userName;
         this.ticketsNumber = 10;
         this.eventController = eventController;
-        this.priceController = priceController;
+        this.rankController = rankController;
     }
 
     public String getUserName() {
@@ -43,7 +43,7 @@ public class User {
     public void purchaseEvent(String eventName, int newRank, int price) {
         int eventRank = eventController.getEventRank(eventName);
         if (eventRank > -1 && eventRank != newRank) {
-            priceController.bidding(newRank, eventRank, price);
+            rankController.bidding(newRank, eventRank, price);
         } else {
             System.out.println("购买失败！");
         }

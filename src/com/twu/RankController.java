@@ -1,11 +1,11 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class PriceController {
+public class RankController {
     private List<Integer> obtainedRanking;
     private List<Integer> allRankingPrices;
 
-    public PriceController() {
+    public RankController() {
         obtainedRanking = new ArrayList<>();
         allRankingPrices = new ArrayList<>();
     }

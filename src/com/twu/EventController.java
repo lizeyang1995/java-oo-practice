@@ -3,20 +3,20 @@ import java.util.*;
 public class EventController {
     private List<Event> allEvents;
     private Set<String> allEventsName;
-    private PriceController priceController;
+    private RankController rankController;
 
-    EventController(PriceController priceController) {
+    EventController(RankController priceController) {
         this.allEvents = new ArrayList<>();
         this.allEventsName = new HashSet<>();
-        this.priceController = priceController;
+        this.rankController = priceController;
     }
 
     void addEvent(Event event) {
         String eventName = event.getEventName();
         if (allEventsName.add(eventName.toUpperCase())) {
             allEvents.add(event);
-            priceController.getAllRankingPrices().add(0);
-            priceController.getObtainedRanking().add(0);
+            rankController.getAllRankingPrices().add(0);
+            rankController.getObtainedRanking().add(0);
             System.out.println("添加成功!");
         } else {
             System.out.println("该热搜已经存在，添加失败！");
@@ -50,7 +50,7 @@ public class EventController {
     }
 
     public void adjustPurchasedEventPosition() {
-        List<Integer> obtainedRanking = priceController.getObtainedRanking();
+        List<Integer> obtainedRanking = rankController.getObtainedRanking();
         for (int index = 0; index < obtainedRanking.size(); index++) {
             Integer newRank = obtainedRanking.get(index);
             if (newRank > 0) {
