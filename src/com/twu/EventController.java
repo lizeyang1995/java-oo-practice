@@ -3,10 +3,12 @@ import java.util.*;
 public class EventController {
     private List<Event> allEvents;
     private Set<String> allEventsName;
+    private PriceController priceController;
 
-    EventController() {
+    EventController(PriceController priceController) {
         this.allEvents = new ArrayList<>();
         this.allEventsName = new HashSet<>();
+        this.priceController = priceController;
     }
 
     void addEvent(Event event) {

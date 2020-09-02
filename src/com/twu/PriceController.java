@@ -10,6 +10,14 @@ public class PriceController {
         allRankingPrices = new ArrayList<>();
     }
 
+    public List<Integer> getObtainedRanking() {
+        return obtainedRanking;
+    }
+
+    public List<Integer> getAllRankingPrices() {
+        return allRankingPrices;
+    }
+
     public boolean bidding(int newRank, int originalRanking, int price) {
         if (allRankingPrices.get(newRank - 1) < price) {
             System.out.println("购买成功！");
