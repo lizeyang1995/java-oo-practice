@@ -12,4 +12,8 @@ public class User {
     public void viewEvents() {
         eventController.showEvent();
     }
+
+    public void addEvent(String eventName) {
+        eventController.addEvent(eventName);
+    }
 }
