@@ -8,6 +8,12 @@ public class Event {
         this.heat = 0;
     }
 
+    public Event(String eventName, boolean isSuperEvent) {
+        this.eventName = eventName;
+        this.isSuperEvent = isSuperEvent;
+        this.heat = 0;
+    }
+
     String getEventName() {
         return eventName;
     }
