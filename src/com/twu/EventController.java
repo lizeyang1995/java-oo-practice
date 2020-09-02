@@ -28,6 +28,15 @@ public class EventController {
         }
     }
 
+    public int getEventRank(String eventName) {
+        for (int index = 0; index < allEvents.size(); index++) {
+            if (allEvents.get(index).getEventName().equals(eventName)) {
+                return index + 1;
+            }
+        }
+        return -1;
+    }
+
     void showEvent() {
         sortingEvent(allEvents);
         for (int i = 0; i < allEvents.size(); i++) {

@@ -2,11 +2,13 @@ public class User {
     private String userName;
     private int ticketsNumber;
     private EventController eventController;
+    private PriceController priceController;
 
-    public User(String userName, EventController eventController) {
+    public User(String userName, EventController eventController, PriceController priceController) {
         this.userName = userName;
         this.ticketsNumber = 10;
         this.eventController = eventController;
+        this.priceController = priceController;
     }
 
     public String getUserName() {
