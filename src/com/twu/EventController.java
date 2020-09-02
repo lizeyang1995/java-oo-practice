@@ -5,13 +5,11 @@ public class EventController {
     private Set<String> allEventsName;
     private RankController rankController;
     private Event[] eventsSequence;
-    private List<String> deletedEvent;
 
     EventController(RankController priceController) {
         this.allEvents = new ArrayList<>();
         this.allEventsName = new HashSet<>();
         this.rankController = priceController;
-        this.deletedEvent = new ArrayList<>();
     }
 
     void addEvent(Event event) {
