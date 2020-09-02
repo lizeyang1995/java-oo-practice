@@ -6,12 +6,13 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         while (true) {
             showMainPage();
+            EventController eventController = new EventController();
             int whoAreYou = scanner.nextInt();
             switch (whoAreYou) {
                 case 1: {
                     System.out.println("请输入您的昵称:");
                     String userName = scanner.next();
-                    User user = new User(userName);
+                    User user = new User(userName, eventController);
                     UserPage userPage = new UserPage(user);
                     userPage.action();
                     break;
@@ -19,7 +20,7 @@ public class Main {
                 case 2: {
                     System.out.println("请输入您的昵称:");
                     String administratorName = scanner.next();
-                    Administrator administrator = new Administrator(administratorName);
+                    Administrator administrator = new Administrator(administratorName, eventController);
                     AdministratorPage administratorPage = new AdministratorPage(administrator);
                     administratorPage.action();
                     break;

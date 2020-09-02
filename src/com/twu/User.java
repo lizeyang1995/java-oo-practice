@@ -3,10 +3,10 @@ public class User {
     private int ticketsNumber;
     private EventController eventController;
 
-    public User(String userName) {
+    public User(String userName, EventController eventController) {
         this.userName = userName;
         this.ticketsNumber = 10;
-        this.eventController = new EventController();
+        this.eventController = eventController;
     }
 
     public String getUserName() {

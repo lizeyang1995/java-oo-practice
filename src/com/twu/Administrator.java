@@ -2,9 +2,9 @@ public class Administrator {
     private String administratorName;
     private EventController eventController;
 
-    public Administrator(String administratorName) {
+    public Administrator(String administratorName, EventController eventController) {
         this.administratorName = administratorName;
-        this.eventController = new EventController();
+        this.eventController = eventController;
     }
 
     public String getAdministratorName() {
