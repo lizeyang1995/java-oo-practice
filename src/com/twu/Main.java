@@ -11,7 +11,7 @@ public class Main {
             int whoAreYou = scanner.nextInt();
             switch (whoAreYou) {
                 case 1: {
-                    User user =null;
+                    User user;
                     System.out.println("请输入您的昵称:");
                     String userName = scanner.next();
                     int userIndex = userController.findUserIndex(userName);
