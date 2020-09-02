@@ -9,11 +9,15 @@ public class User {
         this.eventController = new EventController();
     }
 
-    public void viewEvents() {
+    public void showEvent() {
         eventController.showEvent();
     }
 
     public void addEvent(String eventName) {
         eventController.addEvent(eventName);
+    }
+
+    public void increaseHeat(String eventName, int ticketsNumber) {
+        eventController.increaseHeat(eventName, ticketsNumber);
     }
 }
