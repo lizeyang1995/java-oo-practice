@@ -21,10 +21,6 @@ public class EventController {
         }
     }
 
-    public void removeEvent(int eventIndex) {
-        allEvents.remove(eventIndex);
-    }
-
     public int getEventRank(String eventName) {
         for (int index = 0; index < allEvents.size(); index++) {
             if (allEvents.get(index).getEventName().equals(eventName)) {
