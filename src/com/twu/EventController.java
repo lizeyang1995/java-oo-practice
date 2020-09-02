@@ -19,13 +19,8 @@ public class EventController {
         }
     }
 
-    public void removeEvent(String eventName) {
-        for (int i = 0; i < allEvents.size(); i++) {
-            if (allEvents.get(i).getEventName().equals(eventName)) {
-                allEvents.remove(i);
-                return;
-            }
-        }
+    public void removeEvent(int eventIndex) {
+        allEvents.remove(eventIndex);
     }
 
     public int getEventRank(String eventName) {
