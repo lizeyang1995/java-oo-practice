@@ -54,8 +54,8 @@ public class EventController {
         for (int index = 0; index < obtainedRanking.size(); index++) {
             Integer newRank = obtainedRanking.get(index);
             if (newRank > 0) {
-                Event eventsToBeAdjusted = allEvents.get(index);
-                allEvents.set(newRank - 1, eventsToBeAdjusted);
+                Event eventToBeAdjusted = allEvents.get(index);
+                allEvents.set(newRank - 1, eventToBeAdjusted);
                 allEvents.remove(index);
                 obtainedRanking.set(index, 0);
             }
