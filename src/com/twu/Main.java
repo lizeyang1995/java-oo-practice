@@ -18,6 +18,7 @@ public class Main {
                         switch (operationNumber) {
                             case 1: {
                                 user.showEvent();
+                                break;
                             }
                             case 2: {
                                 System.out.println("请输入你要投票的热搜名字：");
@@ -25,6 +26,13 @@ public class Main {
                                 System.out.println("请输入你要投入的票数：" + "(你目前还有：" + user.getTicketsNumber() + "票)");
                                 int votes = scanner.nextInt();
                                 user.vote(eventName, votes);
+                                break;
+                            }
+                            case 4: {
+                                System.out.println("请输入要添加的热搜名称：");
+                                String eventName = scanner.next();
+                                user.addEvent(eventName);
+                                break;
                             }
                         }
                     }
