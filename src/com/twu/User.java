@@ -31,6 +31,7 @@ public class User {
             boolean isSuccess = eventController.increaseHeat(eventName, ticketsNumber);
             if (isSuccess) {
                 this.ticketsNumber -= ticketsNumber;
+                System.out.println("投票成功!");
             }
         } else {
             System.out.println("票数不够！");

@@ -13,6 +13,7 @@ public class EventController {
         String eventName = event.getEventName();
         if (allEventsName.add(eventName.toUpperCase())) {
             allEvents.add(event);
+            System.out.println("添加成功!");
         } else {
             System.out.println("该热搜已经存在，添加失败！");
         }
