@@ -1,10 +1,10 @@
 import java.util.*;
 
-public class EventControl {
+public class EventController {
     private List<Event> allEvents;
     private Set<String> allEventsName;
 
-    public EventControl() {
+    public EventController() {
         this.allEvents = new ArrayList<>();
         this.allEventsName = new HashSet<>();
     }
