@@ -18,6 +18,11 @@ public class User {
     }
 
     public void increaseHeat(String eventName, int ticketsNumber) {
-        eventController.increaseHeat(eventName, ticketsNumber);
+        if (ticketsNumber <= this.ticketsNumber) {
+            eventController.increaseHeat(eventName, ticketsNumber);
+            this.ticketsNumber -= ticketsNumber;
+        } else {
+            System.out.println("票数不够！");
+        }
     }
 }
