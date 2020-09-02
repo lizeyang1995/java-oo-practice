@@ -43,7 +43,7 @@ public class EventController {
         });
     }
 
-    void increaseHeat(String eventName, int ticketsNumber) {
+    boolean increaseHeat(String eventName, int ticketsNumber) {
         for (Event event : allEvents) {
             if (event.getEventName().equals(eventName)) {
                 int originalHeat = event.getHeat();
@@ -52,9 +52,10 @@ public class EventController {
                 } else {
                     event.setHeat(originalHeat + ticketsNumber);
                 }
-                return;
+                return true;
             }
         }
         System.out.println("该热搜不存在。。");
+        return false;
     }
 }

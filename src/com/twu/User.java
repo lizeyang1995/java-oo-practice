@@ -28,8 +28,10 @@ public class User {
 
     public void vote(String eventName, int ticketsNumber) {
         if (ticketsNumber <= this.ticketsNumber) {
-            eventController.increaseHeat(eventName, ticketsNumber);
-            this.ticketsNumber -= ticketsNumber;
+            boolean isSuccess = eventController.increaseHeat(eventName, ticketsNumber);
+            if (isSuccess) {
+                this.ticketsNumber -= ticketsNumber;
+            }
         } else {
             System.out.println("票数不够！");
         }
