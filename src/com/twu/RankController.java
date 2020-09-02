@@ -6,7 +6,7 @@ import java.util.Map;
 public class RankController {
     private List<Integer> obtainedRanking;
     private List<Integer> allRankingPrices;
-    private Map<String, Integer> eventNewRank;
+    private Map<Integer, String> eventNewRank;
 
     public RankController() {
         obtainedRanking = new ArrayList<>();
@@ -22,13 +22,17 @@ public class RankController {
         return allRankingPrices;
     }
 
+    public Map<Integer, String> getEventNewRank() {
+        return eventNewRank;
+    }
+
     public void bidding(int newRank, int originalRanking, String eventName, int price) {
         if (allRankingPrices.get(newRank - 1) < price) {
             System.out.println("竞价成功！");
             allRankingPrices.set(newRank - 1, price);
             allRankingPrices.set(originalRanking - 1, 0);
             obtainedRanking.set(originalRanking - 1, newRank);
-            eventNewRank.put(eventName, newRank);
+            eventNewRank.put(newRank, eventName);
         } else {
             System.out.println("竞价失败！");
         }
