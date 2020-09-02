@@ -5,6 +5,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         EventController eventController = new EventController();
+        UserController userController = new UserController();
         while (true) {
             showMainPage();
             int whoAreYou = scanner.nextInt();

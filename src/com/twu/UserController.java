@@ -4,7 +4,7 @@ import java.util.List;
 public class UserController {
     private List<User> userData;
 
-    public UserController(List<User> userData) {
+    public UserController() {
         this.userData = new ArrayList<>();
     }
 
