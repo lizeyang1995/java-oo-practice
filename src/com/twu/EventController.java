@@ -4,7 +4,6 @@ public class EventController {
     private List<Event> allEvents;
     private Set<String> allEventsName;
     private RankController rankController;
-    private Event[] eventsSequence;
 
     EventController(RankController priceController) {
         this.allEvents = new ArrayList<>();
@@ -17,7 +16,6 @@ public class EventController {
         if (allEventsName.add(eventName.toUpperCase())) {
             allEvents.add(event);
             rankController.getAllRankingPrices().add(0);
-            rankController.getObtainedRanking().add(0);
             System.out.println("添加成功!");
         } else {
             System.out.println("该热搜已经存在，添加失败！");
@@ -43,20 +41,9 @@ public class EventController {
     }
 
     void showEvent() {
-        sortingEvent(allEvents);
         for (int i = 0; i < allEvents.size(); i++) {
             System.out.println(i + 1 + " " + allEvents.get(i).getEventName() + " " + allEvents.get(i).getHeat());
         }
-    }
-
-    private void sortingEvent(List<Event> allEvents) {
-        allEvents.sort(new Comparator<Event>() {
-            @Override
-            public int compare(Event event, Event anotherEvent) {
-                return anotherEvent.getHeat() - event.getHeat();
-            }
-        });
-        adjustPurchasedEventPosition();
     }
 
     public void adjustPurchasedEventPosition() {

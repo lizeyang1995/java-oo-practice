@@ -4,20 +4,12 @@ import java.util.List;
 import java.util.Map;
 
 public class RankController {
-    private List<Integer> obtainedRanking;
     private List<Integer> allRankingPrices;
     private Map<Integer, String> eventsNewRank;
-    private List<String> deletedEvent;
 
     public RankController() {
-        obtainedRanking = new ArrayList<>();
         allRankingPrices = new ArrayList<>();
         eventsNewRank = new HashMap<>();
-        this.deletedEvent = new ArrayList<>();
-    }
-
-    public List<Integer> getObtainedRanking() {
-        return obtainedRanking;
     }
 
     public List<Integer> getAllRankingPrices() {
@@ -26,10 +18,6 @@ public class RankController {
 
     public Map<Integer, String> getEventsNewRank() {
         return eventsNewRank;
-    }
-
-    public List<String> getDeletedEvent() {
-        return deletedEvent;
     }
 
     public void bidding(int newRank, int originalRanking, String eventName, int price) {
