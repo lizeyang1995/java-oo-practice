@@ -6,7 +6,7 @@ import java.util.Map;
 public class RankController {
     private List<Integer> obtainedRanking;
     private List<Integer> allRankingPrices;
-    private List<Map<Integer, String>> eventsNewRank;
+    private List<String[]> eventsNewRank;
     private List<String> deletedEvent;
 
     public RankController() {
@@ -24,7 +24,7 @@ public class RankController {
         return allRankingPrices;
     }
 
-    public List<Map<Integer, String>> getEventsNewRank() {
+    public List<String[]> getEventsNewRank() {
         return eventsNewRank;
     }
 
@@ -44,8 +44,9 @@ public class RankController {
     }
 
     public void adjustEventNewRank(int newRank, String eventName) {
-        Map<Integer, String> eventNewRank = new HashMap<>();
-        eventNewRank.put(newRank, eventName);
+        String[] eventNewRank = new String[2];
+        eventNewRank[0] = eventName;
+        eventNewRank[1] = newRank + "";
         eventsNewRank.add(eventNewRank);
     }
 }
