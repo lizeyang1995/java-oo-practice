@@ -34,6 +34,9 @@ public class AdministratorPage {
                     run = false;
                     break;
                 }
+                default: {
+                    System.out.println("请重新输入!");
+                }
             }
         }
     }

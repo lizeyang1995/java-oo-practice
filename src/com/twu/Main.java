@@ -38,6 +38,9 @@ public class Main {
                     System.exit(0);
                     break;
                 }
+                default: {
+                    System.out.println("请重新输入!");
+                }
             }
         }
     }
