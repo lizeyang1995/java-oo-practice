@@ -44,6 +44,7 @@ public class User {
         int eventRank = eventController.getEventRank(eventName);
         if (eventRank > -1 && eventRank != newRank) {
             rankController.bidding(newRank, eventRank, eventName, price);
+            eventController.adjustPurchasedEventPosition();
         } else {
             System.out.println("购买失败！");
         }

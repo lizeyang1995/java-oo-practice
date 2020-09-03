@@ -6,13 +6,13 @@ import java.util.Map;
 public class RankController {
     private List<Integer> obtainedRanking;
     private List<Integer> allRankingPrices;
-    private List<String[]> eventsNewRank;
+    private Map<Integer, String> eventsNewRank;
     private List<String> deletedEvent;
 
     public RankController() {
         obtainedRanking = new ArrayList<>();
         allRankingPrices = new ArrayList<>();
-        eventsNewRank = new ArrayList<>();
+        eventsNewRank = new HashMap<>();
         this.deletedEvent = new ArrayList<>();
     }
 
@@ -24,7 +24,7 @@ public class RankController {
         return allRankingPrices;
     }
 
-    public List<String[]> getEventsNewRank() {
+    public Map<Integer, String> getEventsNewRank() {
         return eventsNewRank;
     }
 
@@ -37,17 +37,13 @@ public class RankController {
             System.out.println("竞价成功！");
             allRankingPrices.set(newRank - 1, price);
             allRankingPrices.set(originalRanking - 1, 0);
-            adjustEventNewRank(newRank, eventName, originalRanking);
+            adjustEventNewRank(newRank, eventName);
         } else {
             System.out.println("竞价失败！");
         }
     }
 
-    public void adjustEventNewRank(int newRank, String eventName, int originalRanking) {
-        String[] eventNewRank = new String[3];
-        eventNewRank[0] = eventName;
-        eventNewRank[1] = newRank + "";
-        eventNewRank[2] = originalRanking + "";
-        eventsNewRank.add(eventNewRank);
+    public void adjustEventNewRank(int newRank, String eventName) {
+        eventsNewRank.put(newRank, eventName);
     }
 }

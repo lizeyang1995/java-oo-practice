@@ -44,8 +44,8 @@ public class EventController {
 
     void showEvent() {
         sortingEvent(allEvents);
-        for (int i = 0; i < eventsSequence.length; i++) {
-            System.out.println(i + 1 + " " + eventsSequence[i].getEventName() + " " + eventsSequence[i].getHeat());
+        for (int i = 0; i < allEvents.size(); i++) {
+            System.out.println(i + 1 + " " + allEvents.get(i).getEventName() + " " + allEvents.get(i).getHeat());
         }
     }
 
@@ -60,15 +60,14 @@ public class EventController {
     }
 
     public void adjustPurchasedEventPosition() {
-        List<Integer> obtainedRanking = rankController.getObtainedRanking();
-        for (int index = 0; index < obtainedRanking.size(); index++) {
-            Integer newRank = obtainedRanking.get(index);
-            if (newRank > 0) {
-                Event eventToBeAdjusted = allEvents.get(index);
-                allEvents.set(newRank - 1, eventToBeAdjusted);
-                allEvents.remove(index);
-                obtainedRanking.set(index, 0);
-            }
+        Map<Integer, String> eventsNewRank = rankController.getEventsNewRank();
+        for (Map.Entry<Integer, String> eventNewRank : eventsNewRank.entrySet()) {
+            String eventName = eventNewRank.getValue();
+            int originalRank = getEventRank(eventName);
+            int newRank = eventNewRank.getKey();
+            Event event = getEventByName(eventName);
+            allEvents.set(newRank - 1, event);
+            allEvents.remove(originalRank - 1);
         }
     }
 
