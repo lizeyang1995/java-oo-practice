@@ -46,18 +46,21 @@ public class EventController {
         }
     }
 
-    public void adjustPurchasedEventPosition() {
+    public void adjustPurchasedEventPosition(boolean becauseOfBuying) {
         Map<Integer, String> eventsNewRank = rankController.getEventsNewRank();
         for (Map.Entry<Integer, String> eventNewRank : eventsNewRank.entrySet()) {
             String eventName = eventNewRank.getValue();
             int originalRank = getEventRank(eventName);
             int newRank = eventNewRank.getKey();
-            if (originalRank == newRank) {
-                continue;
-            }
             Event event = getEventByName(eventName);
-            allEvents.set(newRank - 1, event);
-            allEvents.remove(originalRank - 1);
+            if (originalRank == newRank) {
+            } else if (becauseOfBuying) {
+                allEvents.set(newRank - 1, event);
+                allEvents.remove(originalRank - 1);
+            } else {
+                allEvents.remove(originalRank - 1);
+                allEvents.add(newRank - 1, event);
+            }
         }
     }
 
@@ -89,6 +92,6 @@ public class EventController {
                 break;
             }
         }
+        adjustPurchasedEventPosition(false);
     }
-
 }
