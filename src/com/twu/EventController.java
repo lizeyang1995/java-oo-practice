@@ -52,6 +52,9 @@ public class EventController {
             String eventName = eventNewRank.getValue();
             int originalRank = getEventRank(eventName);
             int newRank = eventNewRank.getKey();
+            if (originalRank == newRank) {
+                continue;
+            }
             Event event = getEventByName(eventName);
             allEvents.set(newRank - 1, event);
             allEvents.remove(originalRank - 1);
