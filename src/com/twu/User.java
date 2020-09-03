@@ -34,6 +34,7 @@ public class User {
             if (isSuccess) {
                 this.ticketsNumber -= ticketsNumber;
                 System.out.println("投票成功!");
+                eventController.adjustPositionAfterVoting(eventName);
             }
         } else {
             System.out.println("票数不够！");

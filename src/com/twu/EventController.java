@@ -73,4 +73,19 @@ public class EventController {
         System.out.println("该热搜不存在。。");
         return false;
     }
+
+    public void adjustPositionAfterVoting(String eventName) {
+        Map<Integer, String> eventsNewRank = rankController.getEventsNewRank();
+        Event adjustedEvent = getEventByName(eventName);
+        for (int index = 0; index <allEvents.size(); index++) {
+            if (allEvents.get(index).getHeat() == adjustedEvent.getHeat() && allEvents.get(index).getEventName().equals(eventName)) {
+                break;
+            } else if (!eventsNewRank.containsKey(index + 1) && allEvents.get(index).getHeat() < adjustedEvent.getHeat()) {
+                allEvents.remove(adjustedEvent);
+                allEvents.add(index, adjustedEvent);
+                break;
+            }
+        }
+    }
+
 }
