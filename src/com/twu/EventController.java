@@ -44,8 +44,8 @@ public class EventController {
 
     void showEvent() {
         sortingEvent(allEvents);
-        for (int i = 0; i < allEvents.size(); i++) {
-            System.out.println(i + 1 + " " + allEvents.get(i).getEventName() + " " + allEvents.get(i).getHeat());
+        for (int i = 0; i < eventsSequence.length; i++) {
+            System.out.println(i + 1 + " " + eventsSequence[i].getEventName() + " " + eventsSequence[i].getHeat());
         }
     }
 
