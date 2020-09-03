@@ -37,16 +37,17 @@ public class RankController {
             System.out.println("竞价成功！");
             allRankingPrices.set(newRank - 1, price);
             allRankingPrices.set(originalRanking - 1, 0);
-            adjustEventNewRank(newRank, eventName);
+            adjustEventNewRank(newRank, eventName, originalRanking);
         } else {
             System.out.println("竞价失败！");
         }
     }
 
-    public void adjustEventNewRank(int newRank, String eventName) {
-        String[] eventNewRank = new String[2];
+    public void adjustEventNewRank(int newRank, String eventName, int originalRanking) {
+        String[] eventNewRank = new String[3];
         eventNewRank[0] = eventName;
         eventNewRank[1] = newRank + "";
+        eventNewRank[2] = originalRanking + "";
         eventsNewRank.add(eventNewRank);
     }
 }
