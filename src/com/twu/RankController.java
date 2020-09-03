@@ -37,11 +37,15 @@ public class RankController {
             System.out.println("竞价成功！");
             allRankingPrices.set(newRank - 1, price);
             allRankingPrices.set(originalRanking - 1, 0);
-            Map<Integer, String> eventNewRank = new HashMap<>();
-            eventNewRank.put(newRank, eventName);
-            eventsNewRank.add(eventNewRank);
+            adjustEventNewRank(newRank, eventName);
         } else {
             System.out.println("竞价失败！");
         }
+    }
+
+    public void adjustEventNewRank(int newRank, String eventName) {
+        Map<Integer, String> eventNewRank = new HashMap<>();
+        eventNewRank.put(newRank, eventName);
+        eventsNewRank.add(eventNewRank);
     }
 }
