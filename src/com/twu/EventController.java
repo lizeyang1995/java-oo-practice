@@ -53,11 +53,10 @@ class EventController {
             int originalRank = getEventRank(eventName);
             int newRank = eventNewRank.getKey();
             Event event = getEventByName(eventName);
-            if (originalRank == newRank) {
-            } else if (becauseOfBuying) {
+            if (becauseOfBuying) {
                 allEvents.set(newRank - 1, event);
                 allEvents.remove(originalRank - 1);
-            } else {
+            } else if (originalRank != newRank) {
                 allEvents.remove(originalRank - 1);
                 allEvents.add(newRank - 1, event);
             }
