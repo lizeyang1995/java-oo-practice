@@ -1,13 +1,13 @@
 import java.util.Scanner;
 
-public class UserPage {
+class UserPage {
     private User user;
 
-    public UserPage(User user) {
+    UserPage(User user) {
         this.user = user;
     }
 
-    public void action() {
+    void action() {
         Scanner scanner = new Scanner(System.in);
         boolean run = true;
         while (run) {
@@ -53,7 +53,7 @@ public class UserPage {
         }
     }
 
-    public static void showUserPage(String userName) {
+    private static void showUserPage(String userName) {
         System.out.println("你好，" + userName + "，你可以：");
         System.out.println("1.查看热搜排行榜");
         System.out.println("2.给热搜事件投票");

@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class EventController {
+class EventController {
     private List<Event> allEvents;
     private Set<String> allEventsName;
     private RankController rankController;
@@ -22,7 +22,7 @@ public class EventController {
         }
     }
 
-    public int getEventRank(String eventName) {
+    int getEventRank(String eventName) {
         for (int index = 0; index < allEvents.size(); index++) {
             if (allEvents.get(index).getEventName().equals(eventName)) {
                 return index + 1;
@@ -31,7 +31,7 @@ public class EventController {
         return -1;
     }
 
-    public Event getEventByName(String eventName) {
+    private Event getEventByName(String eventName) {
         for (Event event : allEvents) {
             if (event.getEventName().equals(eventName)) {
                 return event;
@@ -46,7 +46,7 @@ public class EventController {
         }
     }
 
-    public void adjustPurchasedEventPosition(boolean becauseOfBuying) {
+    void adjustPurchasedEventPosition(boolean becauseOfBuying) {
         Map<Integer, String> eventsNewRank = rankController.getEventsNewRank();
         for (Map.Entry<Integer, String> eventNewRank : eventsNewRank.entrySet()) {
             String eventName = eventNewRank.getValue();
@@ -80,7 +80,7 @@ public class EventController {
         return false;
     }
 
-    public void adjustPositionAfterVoting(String eventName) {
+    void adjustPositionAfterVoting(String eventName) {
         Map<Integer, String> eventsNewRank = rankController.getEventsNewRank();
         Event adjustedEvent = getEventByName(eventName);
         for (int index = 0; index <allEvents.size(); index++) {

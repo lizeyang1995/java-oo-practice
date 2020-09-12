@@ -1,34 +1,34 @@
-public class User {
+class User {
     private String userName;
     private int ticketsNumber;
     private EventController eventController;
     private RankController rankController;
 
-    public User(String userName, EventController eventController, RankController rankController) {
+    User(String userName, EventController eventController, RankController rankController) {
         this.userName = userName;
         this.ticketsNumber = 10;
         this.eventController = eventController;
         this.rankController = rankController;
     }
 
-    public String getUserName() {
+    String getUserName() {
         return userName;
     }
 
-    public int getTicketsNumber() {
+    int getTicketsNumber() {
         return ticketsNumber;
     }
 
-    public void showEvent() {
+    void showEvent() {
         eventController.showEvent();
     }
 
-    public void addEvent(String eventName) {
+    void addEvent(String eventName) {
         Event event = new Event(eventName);
         eventController.addEvent(event);
     }
 
-    public void vote(String eventName, int ticketsNumber) {
+    void vote(String eventName, int ticketsNumber) {
         if (ticketsNumber <= this.ticketsNumber) {
             boolean isSuccess = eventController.increaseHeat(eventName, ticketsNumber);
             if (isSuccess) {
@@ -41,7 +41,7 @@ public class User {
         }
     }
 
-    public void purchaseEvent(String eventName, int newRank, int price) {
+    void purchaseEvent(String eventName, int newRank, int price) {
         boolean becauseOfBuying = true;
         int eventRank = eventController.getEventRank(eventName);
         if (eventRank > -1 && eventRank != newRank) {

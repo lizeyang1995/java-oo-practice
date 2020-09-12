@@ -1,13 +1,13 @@
 import java.util.Scanner;
 
-public class AdministratorPage {
+class AdministratorPage {
     private Administrator administrator;
 
-    public AdministratorPage(Administrator administrator) {
+    AdministratorPage(Administrator administrator) {
         this.administrator = administrator;
     }
 
-    public void action() {
+    void action() {
         Scanner scanner = new Scanner(System.in);
         boolean run = true;
         while (run) {
@@ -41,7 +41,7 @@ public class AdministratorPage {
         }
     }
 
-    public void showAdministratorPage() {
+    private void showAdministratorPage() {
         System.out.println("你好，" + administrator.getAdministratorName() + "，你可以：");
         System.out.println("1.查看热搜排行榜");
         System.out.println("2.添加热搜");

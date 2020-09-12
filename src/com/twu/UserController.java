@@ -4,7 +4,7 @@ import java.util.List;
 public class UserController {
     private List<User> userData;
 
-    public UserController() {
+    UserController() {
         this.userData = new ArrayList<>();
     }
 
@@ -12,11 +12,11 @@ public class UserController {
         return userData;
     }
 
-    public void addUser(User user) {
+    void addUser(User user) {
         userData.add(user);
     }
 
-    public int findUserIndex(String userName) {
+    int findUserIndex(String userName) {
         for (int index = 0; index < userData.size(); index++) {
             if (userData.get(index).getUserName().equals(userName)) {
                 return index;
@@ -25,7 +25,7 @@ public class UserController {
         return -1;
     }
 
-    public User getUser(int index) {
+    User getUser(int index) {
         return userData.get(index);
     }
 }

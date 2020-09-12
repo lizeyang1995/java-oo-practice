@@ -8,7 +8,7 @@ public class Event {
         this.heat = 0;
     }
 
-    public Event(String eventName, boolean isSuperEvent) {
+    Event(String eventName, boolean isSuperEvent) {
         this.eventName = eventName;
         this.isSuperEvent = isSuperEvent;
         this.heat = 0;
@@ -22,7 +22,7 @@ public class Event {
         return heat;
     }
 
-    public boolean isSuperEvent() {
+    boolean isSuperEvent() {
         return isSuperEvent;
     }
 
@@ -30,7 +30,7 @@ public class Event {
         this.eventName = eventName;
     }
 
-    public void setHeat(int heat) {
+    void setHeat(int heat) {
         this.heat = heat;
     }
 

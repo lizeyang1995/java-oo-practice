@@ -3,24 +3,24 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class RankController {
+class RankController {
     private List<Integer> allRankingPrices;
     private Map<Integer, String> eventsNewRank;
 
-    public RankController() {
+    RankController() {
         allRankingPrices = new ArrayList<>();
         eventsNewRank = new HashMap<>();
     }
 
-    public List<Integer> getAllRankingPrices() {
+    List<Integer> getAllRankingPrices() {
         return allRankingPrices;
     }
 
-    public Map<Integer, String> getEventsNewRank() {
+    Map<Integer, String> getEventsNewRank() {
         return eventsNewRank;
     }
 
-    public void bidding(int newRank, int originalRanking, String eventName, int price) {
+    void bidding(int newRank, int originalRanking, String eventName, int price) {
         if (allRankingPrices.get(newRank - 1) < price) {
             System.out.println("竞价成功！");
             allRankingPrices.set(newRank - 1, price);
@@ -31,7 +31,7 @@ public class RankController {
         }
     }
 
-    public void adjustEventNewRank(int newRank, String eventName) {
+    private void adjustEventNewRank(int newRank, String eventName) {
         eventsNewRank.put(newRank, eventName);
     }
 }
