@@ -48,8 +48,10 @@ class User {
         boolean becauseOfBuying = true;
         int eventRank = eventController.getEventRank(eventName);
         if (eventRank > -1 && eventRank != newRank) {
-            rankController.bidding(newRank, eventRank, eventName, price);
-            eventController.adjustPurchasedEventPosition(becauseOfBuying);
+            boolean biddingSuccess = rankController.bidding(newRank, eventRank, eventName, price);
+            if (biddingSuccess) {
+                eventController.adjustPurchasedEventPosition(becauseOfBuying);
+            }
         } else {
             System.out.println("购买失败！");
         }
