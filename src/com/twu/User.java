@@ -29,6 +29,9 @@ class User {
     }
 
     void vote(String eventName, int ticketsNumber) {
+        if (eventController.getEventRank(eventName) == -1) {
+            System.out.println("要投票的事件不存在！");
+        }
         if (ticketsNumber <= this.ticketsNumber) {
             boolean isSuccess = eventController.increaseHeat(eventName, ticketsNumber);
             if (isSuccess) {
