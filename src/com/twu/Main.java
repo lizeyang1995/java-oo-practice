@@ -45,7 +45,7 @@ public class Main {
         }
     }
 
-    public static void showMainPage() {
+    private static void showMainPage() {
         System.out.println("欢迎来到热搜榜，你是？");
         System.out.println("1.用户");
         System.out.println("2.管理员");
