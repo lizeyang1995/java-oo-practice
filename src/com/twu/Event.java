@@ -1,4 +1,4 @@
-public class Event {
+class Event {
     private String eventName;
     private int heat;
     private boolean isSuperEvent;
@@ -26,15 +26,7 @@ public class Event {
         return isSuperEvent;
     }
 
-    public void setEventName(String eventName) {
-        this.eventName = eventName;
-    }
-
     void setHeat(int heat) {
         this.heat = heat;
-    }
-
-    public void setSuperEvent(boolean issuperEvent) {
-        this.isSuperEvent = issuperEvent;
     }
 }
